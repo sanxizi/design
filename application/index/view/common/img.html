@@ -1,0 +1,269 @@
+
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery.form/4.2.2/jquery.form.min.js"></script>
+
+<style type="text/css">
+/* .btn{
+      -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius:0;
+        border: 1px solid #f55;
+        padding: 1rem 1.5rem;
+        transition: all 0.5s;
+        color: #f55;
+        margin:5px;
+
+}
+.active{
+
+      background: rgba(255, 255, 255,0.3);
+      border: none;
+      transition: all 0.5s;
+      color: #888;
+      box-shadow: 0 0 1rem #cccccc;
+
+    }
+    .btn:hover{
+      color: #cccccc;
+      transition: all 0.5s;
+    }
+    .active:hover{
+      color: #888;
+
+      transition: all 0.5s;
+
+    } */
+
+
+</style>
+  <input type="hidden" name="type" value="[imgtype]" class="imgtype">
+
+    <form enctype="multipart/form-data" method="post" action="https://sm.ms/api/upload" id = "upform" style="height:100%;width:100%;position: relative;z-index: 1;display: flex;justify-content: center;align-items:center;/*垂直居中*/">
+
+        <input type="file" name="smfile" id = "smfile" class = "up-file" style="height:100%;width:100%;opacity: 0;position: absolute;z-index: 10000;">
+        <input type="submit" name="up-click" hidden="true">
+
+        <div class="box text-center" id="status" style="height: 100%;width: 100%;font-size: 25px;color: rgba(25,25,25,0.7);position: absolute;z-index: 100;top: 0;padding-top: 150px;">
+            <i class="fa fa-cloud-upload fa-5x upload-start" aria-hidden="true"></i>
+            <i class="fa fa-spinner fa-pulse fa-5x fa-fw upload-ing"></i>
+
+            <p class="upload-msg">
+              <br>
+              点击上传区和拖拽图片至上传框均可上传
+
+
+           </p>
+
+        </div>
+    </form>
+
+  
+    <form method="post " class="img-photo-form hide" style="width: 100%;height: 100px;position: absolute;z-index: 1000;bottom: 0px;">
+        <div class="" data-toggle="buttons" style="display: flex;justify-content: center;align-items:center;/*垂直居中*/">
+                <label class="btn active "  >
+                  <input type="radio" name="imgtype" value="0" autocomplete="off" checked="checked"> 生活美食
+                </label>
+                <label class="btn"  >
+                  <input type="radio" name="imgtype" value="1" autocomplete="off"> 风景物语
+                </label>
+                <label class="btn">
+                  <input type="radio" name="imgtype" value="2"  autocomplete="off"> 呆萌宠物 
+                </label>
+
+                <label class="btn" >
+                  <input type="radio" name="imgtype" value="3"  autocomplete="off"> 清新时光
+                </label>
+
+                <label class="btn" >
+                  <input type="radio" name="imgtype" value="4"  autocomplete="off"> 工作商务
+                </label>
+
+                <label class="btn" >
+                  <input type="radio" name="imgtype" value="5"  autocomplete="off"> 酷炫科幻
+                </label>
+
+                <label class="btn" >
+                  <input type="radio" name="imgtype" value="6"  autocomplete="off"> 动漫卡通
+                </label>
+
+
+        </div>
+
+       <!--  <textarea style="width: 100%;height: 35px;line-height: 35px;"></textarea> -->
+
+        <div class="img-ispublic hide" data-toggle="buttons" style="display: flex;justify-content: center;align-items:center;/*垂直居中*/">
+                <label class="btn active "  >
+                  <input type="radio" name="level" value="0" autocomplete="off" checked="checked"> 公开可见 
+                </label>
+                <label class="btn" >
+                  <input type="radio" name="level" value="1" autocomplete="off"> 私人图集
+                </label>
+
+
+
+        </div>
+
+    </form>
+
+
+
+    <script type="text/javascript">
+        $(function(){
+
+          
+
+
+          var salmonLevel=0;
+          var salmonImgtype=0;
+
+          switch($(".imgtype").val())
+          {
+            //作为相册上传
+            case "1" :
+            {
+              //alert("646");
+               $(".img-photo-form").show();
+              salmonLevel = $('input:radio[name="level"]:checked').val();
+              salmonImgtype = $('input:radio[name="imgtype"]:checked').val();
+
+              break;
+            }
+            //作为圈子封面上传
+            case "2" :
+            {
+              //alert("666");
+              $(".img-photo-form").hide();
+              salmonLevel = 2;
+              salmonImgtype = 11;
+
+
+              break;
+            }
+            //作为头像上传
+            case "3" :
+            {
+              $(".img-photo-form").hide();
+              salmonLevel = 3;
+              salmonImgtype = 11;
+              break;
+            }
+
+            //其他上传 //图床
+            default :
+            {
+              //alert($(".imgtype").val());
+              $(".img-photo-form").hide();
+              salmonLevel = 1;
+              salmonImgtype = 11;
+              break;
+
+            }
+          }
+
+
+
+
+          $(".upload-ing").eq(0).fadeOut(0);
+
+
+
+
+          smfile.onchange=function(){
+
+            $(".upload-start").eq(0).fadeOut(0);
+            $(".upload-ing").eq(0).fadeIn(200);
+
+            $(".upload-msg").eq(0).text("上传中..."+$("#smfile").val());
+            $("#upform").ajaxSubmit(function(data,status){
+
+            //上传成功
+            if(data.code == 'success') {
+
+                //图片地址
+                var url = data.data.url; //图片地址
+
+                var filename = data.data.filename; //图片原名
+
+                var storename = data.data.storename; //储存名
+
+                var size = data.data.size; //大小
+
+                var width = data.data.width; //宽度
+
+                var height = data.data.height; //高度
+
+                var hash = data.data.hash; //哈希
+
+                var del = data.data.delete; //删除连接
+
+                var path = data.data.path; //相对路径
+
+                $.post('{:url("Upload/img")}',{
+                     url:url,
+                     filename : filename, 
+                     storename :storename ,
+                     size : size ,
+                     width : width ,
+                     height : height ,
+                     hash : hash ,
+                     del : del ,
+                     path : path,
+                     intro : "暂无介绍..." ,
+                     type :$(".imgtype").val(),
+                     imgtype : salmonImgtype,
+                     level : salmonLevel
+
+                },function(response,status,xhr){
+
+                        $(".upload-ing").eq(0).fadeOut(0);
+                        $(".upload-start").eq(0).fadeIn(200);
+                        $("#upform").parent().removeClass("fadeInDown");
+                        $(".upload-msg").eq(0).html("<b>"+response.txt+" 点击继续上传</b>");
+
+                        if($(".imgtype").val()=="3"){
+                          refreshAvatar();
+                        }else{
+                          swal(response.txt,"","success");
+                        }
+                        
+                        //timg();
+                 });
+               
+
+            }else{
+                //错误原因
+                var msg = data.msg;
+                alert(msg);
+                $("#upform").parent().fadeOut(0);
+
+            }
+        });
+        //alert("finish");
+    };
+
+
+    function refreshAvatar(){
+            $.post("{:url('User/refreshAvatar')}",
+              {
+                type  : 1
+              },
+              function(response,status,xhr){
+              if (response.status==1) {
+
+                swal(response.txt,"","success");
+                $(".change-img").modal("hide");
+
+              }else{
+                swal(response.txt,"","error");
+              }
+
+            });
+          }
+
+
+
+
+});
+
+
+</script>
+

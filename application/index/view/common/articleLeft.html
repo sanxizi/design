@@ -1,0 +1,103 @@
+<span class="right-animate s-article-menu-btn"><i class=" fa fa-angle-double-right fa-2x" aria-hidden="true"></i></span>
+
+<div class="animated s-article-menu" id="art-menu-list">
+
+	<div class="s-menu-list">
+		<a href="{:url('Article/index')}">
+			<div class="s-menu-list-li">
+				<i class="fa fa-home fa-3x" aria-hidden="true"></i>
+				<p>文章首页</p>
+			</div>
+		</a>
+		<a href="{:url('Article/mine')}">
+			<div class="s-menu-list-li">
+				<i class="fa fa-book fa-3x" aria-hidden="true"></i>
+				<p>我的文章</p>
+			</div>
+		</a>
+		<a href="{:url('Article/write')}">
+			<div class="s-menu-list-li">
+				<i class="fa fa-edit fa-3x" aria-hidden="true"></i>
+				<p>开始创作</p>
+			</div>
+		</a>
+		<a href="{:url('Article/about')}">
+			<div class="s-menu-list-li">
+				<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+				<p>与我相关</p>
+			</div>
+		</a>
+
+
+	</div>
+<!-- 	<hr>
+<div class="container">
+	<form class="form-inline" method="post" action="">
+
+		<input type="text" class=" search-article" placeholder="输入要查找的文章">
+
+		<button type="submit" class="search-article-btn" ><i class="fa fa-search fa-lg white"></i></button>
+	</form>
+
+	<br><br><br><hr>
+<h4>标签查找</h4>
+<button class="btn btn-warning" > 工作 </button>
+<button class="btn btn-warning" > 学习 </button>
+<button class="btn btn-warning" > 生活 </button>
+<button class="btn btn-warning" > 心情</button>
+<button class="btn btn-warning" > 分享 </button>
+ -->
+
+	<span class="right-animate close-article-menu" title="关闭面板"><i class=" fa fa-angle-double-right fa-2x red " aria-hidden="true"></i></span>
+
+<!-- 
+	</div> -->
+
+
+
+
+
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+
+	function rightAnimate(obj){
+
+		setInterval(function(){
+			var aleft = obj.position().left;
+
+			if(aleft >=25){
+				obj.css({"left":"10px" ,"opacity" : "0.7" ,"transition":" all 1s"})
+			}else{
+				obj.css({"left":"30px","opacity" : "0.3" ,"transition":" all 1s"})
+			}
+
+		},1000)
+	}
+
+	
+	for (var i = 0; i < $(".right-animate").length; i++) {
+		rightAnimate($(".right-animate").eq(i));
+	}
+
+	$(".s-article-menu-btn").click(function(){
+		$(".s-article-menu").show();
+		$(".s-article-menu").removeClass("fadeOutRight");
+		$(".s-article-menu").addClass("fadeInLeft");
+		$(this).hide();
+
+	})
+	$(".close-article-menu").click(function(){
+		$(".s-article-menu").removeClass("fadeInLeft");
+		$(".s-article-menu").addClass("fadeOutRight");
+		$(".s-article-menu-btn").show();
+	})
+
+
+})
+
+
+
+</script>

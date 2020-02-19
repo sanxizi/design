@@ -1,0 +1,106 @@
+{include file="common/header" title="个人信息" img-pc="__IMG__/house.png"}
+
+<script type="text/javascript" src="__JS__/echarts.min.js"></script>
+<script type="text/javascript" src="__JS__/iconfont-food.js"></script>
+{include file="common/nav" title="个人信息" img-pc="__IMG__/house.png"}
+
+<div class="container-fluid">
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="padding bg-white-o margin-vertical text-center radius-lg">
+				<p class="text-left border-bottom-black padding lead">基本信息</p>
+				<img src="__IMG__/avatar.png"  class="img-reponsive img-circle  user-avatar" >
+
+				<p>三文鱼 | 621325</p>
+				身高 体重 年龄 性别  运动量
+				<dl class="dl-horizontal">
+					<p class="line-height border-bottom"><dt> 昵	称 ：</dt>	<dd>三文鱼</dd></p>
+					<p class="line-height border-bottom"><dt> 账	号 ：</dt>	<dd>三文鱼</dd></p>
+					<p class="line-height border-bottom"><dt> 邮	箱 ：</dt>	<dd>三文鱼</dd></p>
+				</dl>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="padding bg-white-o margin-vertical text-center radius-lg">
+				<p class="text-left border-bottom-black padding lead">我的目标：减肥/增重</p>
+				<p>目标体重</p>
+				<p>当前体重</p>
+				<p>我的计划</p>
+				<p>实际行动</p>
+				<p>完成率</p>
+				<p>总体评价</p>
+			</div>
+
+			<div class="bg-white-o padding-min radius-lg margin-vertical col-xs-12">
+
+                <div id="index-goal-chart" style="min-height:300px;"></div>
+            </div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="padding bg-white-o margin-vertical text-center radius-lg">
+				<p class="text-left border-bottom-black padding lead">食物白名单</p>
+				<p>目标体重</p>
+				<p>当前体重</p>
+				<p>我的计划</p>
+
+			</div><br>
+
+			<div class="padding bg-white-o margin-vertical text-center radius-lg">
+				<p class="text-left border-bottom-black padding lead">食物黑名单</p>
+				<p>目标体重</p>
+				<p>当前体重</p>
+				<p>我的计划</p>
+
+			</div>
+		</div>
+		
+
+
+
+
+
+	</div>
+
+
+
+
+
+</div>
+
+
+<script type="text/javascript">
+
+var goal = echarts.init(document.getElementById('index-goal-chart'));
+    var goption = {
+        title: {
+            text: '目标达成度'
+        },
+
+        tooltip: {
+            formatter: '{a} <br/>{b} : {c}%'
+        },
+        color: ['#000'],
+        toolbox: {
+            feature: {
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        series: [
+        {
+            name: '目标完成率',
+            type: 'gauge',
+            detail: {formatter: '{value}%'},
+            data: [{value: 50, name: ''}]
+        }
+        ]
+    };
+
+    goal.setOption(goption);
+
+</script>
+{include file="common/footer" title="首页"}
+

@@ -1,0 +1,261 @@
+{include file="common/header" title="个人信息" img-pc="__IMG__/house.png" img-m="__IMG__/table.jpg"}
+
+<script type="text/javascript" src="__JS__/echarts.min.js"></script>
+<script type="text/javascript" src="__JS__/iconfont-food.js"></script>
+{include file="common/nav" }
+
+<!-- <img src="__IMG__/avatar.png"  class="img-reponsive img-circle  user-avatar" >
+-->
+<div class="container-fluid"><br>
+
+    <div class="row" >
+
+        <div class="col-md-6 ">
+            <div class="row">
+                <div class="user-index-listbox">
+                   <div class="bg-white-o padding radius-lg  margin-vertical">
+                    <p class="text-left border-bottom-black padding lead">饮食推荐 
+                        <button class="right btn btn-default radius">换一批</button>
+                    </p>
+                    <p>基础消耗+基础消耗 </p>
+                    <p>基础消耗+基础消耗 </p>
+                    <p>基础消耗+基础消耗 </p>
+                    <p>基础消耗+基础消耗 </p>
+                </div>
+
+            </div>
+
+            <div class="user-index-listbox">
+                <div class="padding bg-green-o margin-vertical text-center radius-lg ">
+
+                    <blockquote><p class="text-left border-bottom padding lead">基础消耗</p></blockquote>
+
+                    <div class="index-base-k">
+
+                        <div class="">0<br>当日摄入</div>
+                        <div class="index-base-k-middle " style=""><br>基础代谢预算<br><span class="lead">17000</span><br>单位：千卡<br></div>
+                        <div class="">0<br>运动消耗</div>
+
+                    </div><br><br>
+
+                    <div class="row margin-vertical">
+
+                        <div class="col-xs-4">
+                            <span class="">碳水化合物</span><hr>
+                            <span class="">0.00g</span>
+
+                        </div>
+                        <div class="col-xs-4">
+                            <span class="">碳水化合物</span><hr>
+                            <span class="">0.00g</span>
+
+                        </div>
+                        <div class="col-xs-4">
+                            <span class="">碳水化合物</span><hr>
+                            <span class="">0.00g</span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="user-index-listbox">
+
+                <div class="padding bg-white-o margin-vertical  radius-lg">
+                 <p class="text-left border-bottom-black padding lead">能量分析</p>
+
+                 <div class="index-base-food ">
+                    <svg class="icon font-lg" aria-hidden="true"><use xlink:href="#icon-Egg"></use></svg>
+                    <span>早餐：</span>
+                    <span>建议490~670千卡</span>
+                    <span class="iconfont icon-add right"></span>
+                </div>
+
+                <div class="index-base-food ">
+                    <svg class="icon font-lg" aria-hidden="true"><use xlink:href="#icon-Egg"></use></svg>
+                    <span>午餐：</span>
+                    <span>建议490~670千卡</span>
+                    <span class="iconfont icon-add right"></span>
+                </div>
+
+                <div class="index-base-food ">
+                    <svg class="icon font-lg" aria-hidden="true"><use xlink:href="#icon-Egg"></use></svg>
+                    <span>晚餐：</span>
+                    <span>建议490~670千卡</span>
+
+                    <span class="iconfont icon-add right"></span>
+
+                </div>
+
+                <div class="index-base-food ">
+                    <svg class="icon font-lg" aria-hidden="true"><use xlink:href="#icon-Egg"></use></svg>
+                    <span>加餐：</span>
+                    <span>建议490~670千卡</span>
+
+                    <span class="iconfont icon-add right"></span>
+
+                </div>
+
+                <div class="index-base-food ">
+                    <svg class="icon font-lg" aria-hidden="true"><use xlink:href="#icon-Egg"></use></svg>
+                    <span>零食：</span>
+                    <span>建议<670千卡</span>
+
+                    <span class="iconfont icon-add right"></span>
+
+                </div>
+
+                <div class="index-base-food ">
+                    <svg class="icon font-lg" aria-hidden="true"><use xlink:href="#icon-Egg"></use></svg>
+                    <span>运动：</span>
+                    <span>建议<670千卡</span>
+
+                    <span class="iconfont icon-add right"></span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class="col-md-6" >
+    <div class="margin-vertical">
+        <div class="index-chart" id="index-energy-chart">
+
+
+        </div>
+        <div class="index-chart" id="index-food-chart" >
+
+
+        </div>
+        <div class="index-chart" id="index-weight-chart" >
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+<br><br>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var food = echarts.init(document.getElementById('index-food-chart'));
+        // 指定图表的配置项和数据
+        var option = {
+        	title: {
+        		text: '餐饮种类分析图'
+        	},
+        	tooltip: {},
+        	legend: {
+        		data:['食物种类']
+        	},
+/*        	xAxis: {
+        		data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        	},
+        	yAxis: {},*/
+        	series: [{
+        		name: '食物种类',
+        		type: 'pie',
+        		data: [
+                {value: 335, name: '直接访问'},
+                {value: 310, name: '邮件营销'},
+                {value: 234, name: '联盟广告'},
+                {value: 135, name: '视频广告'},
+                {value: 1548, name: '搜索引擎'}
+
+                ]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        food.setOption(option);
+
+
+        var energy = echarts.init(document.getElementById('index-energy-chart'));
+
+        var eoption = {
+            title: {
+                text: '一周卡路里能量走势图'
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                type: 'line',
+                areaStyle: {}
+            }]
+        };
+        energy.setOption(eoption);
+
+
+        var weight = echarts.init(document.getElementById('index-weight-chart'));
+
+        var woption = {
+            title: {
+                text: '一周体重走势图'
+            },
+            color: ['#3398DB'],
+            tooltip: {
+                trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+        {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+        ],
+        yAxis: [
+        {
+            type: 'value'
+        }
+        ],
+        series: [
+        {
+            name: '直接访问',
+            type: 'bar',
+            barWidth: '60%',
+            data: [10, 52, 200, 334, 390, 330, 220]
+        }
+        ]
+    };
+
+    weight.setOption(woption);
+
+
+
+    
+</script>
+</div>
+
+
+
+{include file="common/footer" title="首页"}

@@ -1,0 +1,53 @@
+{include file="common/title"   title="三文鱼-反馈建议"}
+
+
+{include file="common/nav"}
+
+<div class="bg-image" style="background: url(https://ws3.sinaimg.cn/large/005BYqpgly1g01qn737dmj31910u0jte.jpg) no-repeat;"></div>
+
+<div class="container con-top">
+	<div class="bg-white-o padding row margin-t sa-scroll-in" style="position: relative;z-index: 10;">
+
+		<b class="btn left font-lg">反馈列表：</b>
+		<span class="gray  border-gray right line-button radius cursor" data-toggle="modal" data-target="#rModal">戳我提建议</span>
+
+	</div>
+
+{volist id="l" name="list"}
+
+<div class="bg-white-o padding row margin-t sa-scroll-in" style="position: relative;z-index: 10;">
+	<p class="col-xs-12">
+		<span  style="width: 60px;" class="left">
+			<img src="https://images.weserv.nl/?w=40&h=40&t=square&a=attention&url={$l.img}" class="img-responsive ">
+	
+		</span>
+		
+		<span class="left margin-t" > {$l.title} </span> 
+	</p>
+
+	
+
+	<div class="col-xs-12 text-indent">
+
+		{$l.content}
+
+		<p class="text-right">{$l.time | date="Y-m-d H:i:s",###}</p>
+
+
+	</div>
+
+
+</div>
+
+{/volist}
+
+
+
+
+
+</div>
+
+
+
+
+{include file="common/footer"}

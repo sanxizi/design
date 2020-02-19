@@ -1,0 +1,234 @@
+
+	{//include file="common/bootstrap" css1="index" title="boom"}
+	
+
+<body>
+
+	<nav class="navbar navbar-fixed-top _nav" role="navigation"">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle _but glyphicon glyphicon-list" data-toggle="collapse"
+				data-target="#example-navbar-collapse">
+
+			</button>
+			<a class="navbar-brand" href="#"><img src="__STATIC__/img/boom.png" class="_logo"></a>
+		</div>
+		<div class="collapse navbar-collapse" id="example-navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li id="_li"><a href="../person/index">Boom中心</a></li>
+				<li id="_li"><a href="../place/index">Boom社区</a></li>
+				<li id="_li"><a href="../postart/index">Boom广场</a></li>
+				<li id="_li"><a href="../photo/index">Boom相册</a></li>
+
+				<li class="dropdown _li" id="_li">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Boom扩展 <b class="caret"></b>
+					</a>
+
+					<ul style="background: transparent;border: none;box-shadow: 0 0 0 white;" class="dropdown-menu">
+						<a href="#"><li id="_ul" data-toggle="modal" data-target="#upload">文件上传</li></a>
+						<a href="../filec/fileco"><li id="_ul">上传管理</li></a>
+						<a href="../friend/index"><li id="_ul">资源分享</li></a>
+						<a ><li id="_ul" data-toggle="modal" data-target="#public">网站公告</li></a>
+						
+					</ul>
+				</li>
+				<li style="width: 200px;position: fixed;float: right;right: 5px;" id="_li">
+					<div class="{$log}">
+					   <span id="_ico" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"> 登陆</span>
+
+						<span id="_ico" class="glyphicon glyphicon-thumbs-up"  data-toggle="modal" data-target="#myModal1"> 注册</span>
+
+					</div>
+					<div class="{$dis}" >
+						<span id="_ico" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal">  {$username}</span>
+
+							<a style="width: 50px;height: 50px;float: left;margin-left: 10px;border-radius: 50%;" href="?cok=none"><button style="display:block;width: 50px;height: 50px;border-radius: 50%;margin-top: 0px;" class="_button glyphicon glyphicon-off"></button></a>
+					</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+	</nav>
+
+<!-- 上传 -->
+	<div id="upload" class="modal fade _borders" style="display: none;"> 
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" type="button" data-dismiss="modal"><span>×</span><span class="sr-only">关闭弹窗</span></button>
+					<h4  class="_button glyphicon glyphicon-folder-open _h4"> 文件上传</h4>
+				</div>
+
+				<div class="modal-body">
+					{include file="common/upload"}
+				</div>
+
+				<div class="modal-footer">
+						<br><br><br>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+<!-- 公告 -->
+		{include file="common/modal" id="public" ico="tag" title="Public" body="<strong>新站新BUG！有问题！戳！欢迎反馈提建议！</strong>"}
+<!-- 登陆 -->
+	<div id="myModal" class="modal fade _borders" style="display: none;"> 
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" type="button" data-dismiss="modal"><span>×</span><span class="sr-only">关闭弹窗</span></button>
+					<h4  class="_button glyphicon glyphicon-flash _h4"> LOGIN</h4>
+				</div>
+
+				<div class="modal-body">
+					{include file="common/login"}
+				</div>
+
+				<div class="modal-footer">
+						<button class=" _button" type="button" data-dismiss="modal">Close</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+<!-- 注册 -->
+	<div id="myModal1" class="modal fade _borders" style="display: none;"> 
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" type="button" data-dismiss="modal"><span>×</span><span class="sr-only">关闭弹窗</span></button>
+					<h4 class="_button glyphicon glyphicon-flash _h4"> REGISTER</h4>
+				</div>
+
+				<div class="modal-body">
+					{include file="common/register"}
+				</div>
+
+				<div class="modal-footer">
+						<button class="_button" type="button" data-dismiss="modal">Close</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+<!-- 主题内容 -->
+	<div class="container-fluid _cont jumbotron" style="text-align: center;background: url(__STATIC__/img/bacc.jpg);background-size: 100% 700px;">
+		<h1 style="text-align: center;margin-top: 120px; color: white;text-shadow: -5px 5px 15px rgba(62, 54, 107,1);">Boom of 2018 ! bang ! bang ! bang ! </h1>
+		<h2 style="text-align: center;margin:60px auto;color: white;text-shadow: 5px 5px 15px rgba(62, 54, 107,1);">oh shit! too many chick older</h2>
+		<button class="btn btn-info btn-lg" >Start your cool cool travel</button>
+
+	</div>
+
+	<div class="row" id="_panel">
+<!-- visible-lg -->
+	  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hidden-xs">
+	    <div class="thumbnail">
+	      <img src="__STATIC__/img/bac1.jpg" alt="66">
+	      <div class="caption">
+	        <h3>Chat</h3>
+	        <p></p>
+	        <p>The life is must be 向 QIAN look！</p>
+	        <p></p>
+	        <p> <a href="###" class="btn btn-default" role="button">DAY</a></p>
+	      </div>
+	    </div>
+	  </div>
+
+	  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top: 30px;">
+	    <div class="thumbnail">
+	      <img src="__STATIC__/img/bac5.jpg" alt="66">
+	      <div class="caption">
+	        <h3>Our slogan</h3>
+	        <p></p>
+	        <p>帅 is must ，but！Most important is S..</p>
+	        <p></p>
+	        <p> <a href="###" class="btn btn-default" role="button">DAY</a></p>
+	      </div>
+	    </div>
+	  </div>
+
+	  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hidden-xs">
+	    <div class="thumbnail">
+	      <img src="__STATIC__/img/bac2.jpg" alt="66">
+	      <div class="caption">
+	        <h3>Dream</h3>
+	        <p></p>
+	        <p>So it will be bit by life .. moca.moca</p>
+	        <p></p>
+	        <p> <a href="###" class="btn btn-default" role="button">UP</a></p>
+	      </div>
+	    </div>
+	  </div>
+
+
+	</div>
+
+	<div class="_contf" style="text-align: center;">
+	<div style="height: 300px;width: 100%;height: 500px;background: transparent;"></div>
+	<div style="height: 300px;width: 100%;height: 300px; background: rgba(195, 222, 238,0.5);"></div>
+		
+
+		
+
+	</div>
+
+
+	<div class="_conts">
+
+
+		<div class="_note">
+
+					<ul class="list-group">
+					<button class="_button" style="text-align: center;margin-top: -50px; margin-left: -50px;">Tips</button>
+					<li class="list-group-item"></li>
+					  <li class="list-group-item">boom社区，聊天交友！open your shy heart!</li>
+					  <li class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;bomm广场，心情分享！older driver 带你bang bang bang！</li>
+					  <li class="list-group-item">boom扩展，文件随传！save your time money</li>
+					  <li class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;boom相册，随传随看！let us 见证你的美！</li>
+					  <li class="list-group-item">The nost last that you don't know ! all this is false!</li>
+					  
+					</ul>
+
+		</div>
+
+	
+
+
+
+	</div>
+
+	<div class="rows _contl">
+		<div class="_span"><span><strong>友链：</strong></span></div>
+		<ul style="text-align: center;" class="you">
+
+		   <li><a href="">vip视频解析</a></li>
+		   <li><a href="">百度识图</a></li>
+		   <li><a href="">在线翻译</a></li>
+		   <li><a href="http://zhitu.isux.us/">图片压缩</a></li>
+		   <li><a href="">ico制作</a></li> 
+		   <li><a href="http://shouce.jb51.net/php/index.html ">在线手册</a></li>
+		   <li><a href="">在线字体生成</a></li>
+		   <li><a href="">慕课网</a></li>
+		   <li><a href="">网易云课堂</a></li>
+		   <li><a href="">联系我们</a></li>
+		   <li><a href="">网站公告</a></li>
+		   <li><a href="../problem/index">问题反馈</a></li>
+
+		  </ul>
+
+		<div class="tip">
+		  Powered by the first handsome man in the universe<br> <img src="__STATIC__/img/logo.png" height="50px"><br> Copyright © 408 | 豫ICP备xxxxxx号 
+		</div>
+
+	</div>
+			
+	
+
+
+	</body>
+	</html>

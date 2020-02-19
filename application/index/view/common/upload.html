@@ -1,0 +1,61 @@
+
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery.form/4.2.2/jquery.form.min.js"></script>
+
+    <form enctype="multipart/form-data" method="post" action="https://sm.ms/api/upload" id = "upform" style="height:90%;width:100%;position: relative;z-index: 1;">
+
+        <input type="file" name="smfile" id = "smfile" class = "up-file" style="height:80%;width:100%;opacity: 0;position: absolute;z-index: 10000;">
+        <input type="submit" name="up-click" hidden="true">
+
+        <div class="box text-center" id="status" style="height: 100%;width: 100%;font-size: 25px;color: rgba(25,25,25,0.7);position: absolute;z-index: 100;top: 0;padding-top: 80px;">
+            <i class="fa fa-cloud-upload fa-5x upload-start" aria-hidden="true"></i>
+            <i class="fa fa-spinner fa-pulse fa-5x fa-fw upload-ing"></i>
+
+            <p class="upload-msg"> 点击选择图片或拖放进行上传</p>
+
+        </div>
+    </form>
+
+
+    <script type="text/javascript">
+        $(function(){
+          $(".upload-ing").eq(0).fadeOut(0);
+          smfile.onchange=function(){
+    //$(".upload-msg").eq(0).html("<b>"+$("#smfile").val()+"</b>");
+
+    $(".upload-start").eq(0).fadeOut(0);
+    $(".upload-ing").eq(0).fadeIn(200);
+    //alert($("#smfile").val());
+    $(".upload-msg").eq(0).text("上传中..."+$("#smfile").val());
+    $("#upform").ajaxSubmit(function(data,status){
+
+//alert("finish");
+            //上传成功
+            if(data.code == 'success') {
+                //图片地址
+                var url = data.data.url;
+
+                $(".upload-ing").eq(0).fadeOut(0);
+                $(".upload-start").eq(0).fadeIn(200);
+                $("#upform").parent().fadeOut(0);
+                $("#upform").parent().removeClass("fadeInDown");
+                $(".upload-msg").eq(0).html("<b>上传完成！</b>");
+                $("#editor").find(".ql-editor").eq(0).html($("#editor").find(".ql-editor").eq(0).html()+"<img class='img-responsive' src='"+url+"'?><br><br>");
+
+            }else{
+                //错误原因
+                var msg = data.msg;
+                alert(msg);
+
+            }
+        });
+        //alert("finish");
+    };
+
+
+
+
+});
+
+
+</script>
+
